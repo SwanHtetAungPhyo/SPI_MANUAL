@@ -1,63 +1,79 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowRight, Download, FileText } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ArrowRight, Download, FileText, Terminal } from 'lucide-react'
 
 export default function Component() {
   return (
-      <div className="container mx-auto px-4 py-12 bg-[#2C001E] text-white min-h-screen">
-        <h1 className="text-5xl font-bold mb-8 text-[#E95420]">OpenAPI Gateway</h1>
-        <p className="text-xl mb-12 max-w-2xl text-[#AEA79F]">
-          Welcome to OpenAPI Gateway, a modern API management solution with built-in JWT authorization and intuitive interfaces.
-        </p>
+      <div className="container mx-auto px-4 py-12 bg-[#1a1a1a] text-gray-300 min-h-screen">
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl font-bold mb-4 text-[#4bffb5]">SPI(API Gateway)</h1>
+          <p className="text-lg max-w-2xl mx-auto text-white-400">
+            This project represents a personal endeavor to explore the complexities and
+            possibilities of modern system architecture, particularly focusing on microservices. My
+            goal is to deepen my understanding and gain hands-on experience in this field.
+            I am Swan Htet Aung Phyo, currently pursuing a degree in Computer Science at AGH
+            University of Science and Technology in Kraków.
+            <br/>
+            <span className="font-bold"> Swan Htet Aung Phyo</span>
+          </p>
+
+        </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Card className="bg-[#430027] border-[#77216F]">
+          <Card className="bg-[#2b2b2b] border-[#4bffb5] border">
             <CardHeader>
-              <CardTitle className="text-2xl text-[#E95420]">Features</CardTitle>
+              <CardTitle className="text-2xl text-[#4bffb5] flex items-center">
+                <Terminal className="mr-2 h-6 w-6"/>
+                Features
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
                 {[
-                  "Web-based API routing and management",
-                  "Built-in JWT authorization",
-                  "User-friendly interface for API configuration",
-                  "Automatic generation of api_gateway.yaml file",
-                  "Easy deployment and configuration",
+                  "Predefined services in the api_gate_way.ymal file",
+                  "Build JWT authorization. So, you don't need to set up ",
+                  "Developer-centric Monitoring interface",
+                  "Automated api_gateway.yaml generation",
+
                 ].map((feature, index) => (
-                    <li key={index} className="flex items-center">
-                      <ArrowRight className="h-5 w-5 text-[#E95420] mr-2" />
-                      <span className="text-[#AEA79F]">{feature}</span>
+                    <li key={index} className="flex items-center text-gray-300">
+                      <ArrowRight className="h-4 w-4 text-[#4bffb5] mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
                     </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="bg-[#430027] border-[#77216F]">
+          <Card className="bg-[#2b2b2b] border-[#4bffb5] border">
             <CardHeader>
-              <CardTitle className="text-2xl text-[#E95420]">Getting Started</CardTitle>
+              <CardTitle className="text-2xl text-[#4bffb5] flex items-center">
+                <Terminal className="mr-2 h-6 w-6" />
+                Quick Start
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ol className="space-y-4">
                 {[
-                  "Configure your API gateway settings",
-                  "Generate your api_gateway.yaml file",
-                  "Download the API gateway server",
-                  "Deploy and run your API gateway",
+                  "Pull the SPI gateway image from the docker hub",
+                  "Generate api_gateway.yaml with the SPI CLI",
+                  "Run the docker image which will be listening on the localhost:8081",
+                  "Mount the api_gateway.yaml to the container",
+                    "With SPI CLI, pull the default project set up which includes user registration and login based on your framework"
                 ].map((step, index) => (
-                    <li key={index} className="flex items-center">
-                  <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-[#E95420] text-white rounded-full mr-3">
+                    <li key={index} className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-[#4bffb5] text-[#1a1a1a] rounded-sm mr-3 text-sm font-mono">
                     {index + 1}
                   </span>
-                      <span className="text-[#AEA79F]">{step}</span>
+                      <span>{step}</span>
                     </li>
                 ))}
               </ol>
-              <div className="mt-8">
+              <div className="mt-6">
                 <Link href="/configure" passHref>
-                  <Button className="w-full bg-[#E95420] hover:bg-[#C84113] text-white">
-                    Start Configuration
+                  <Button className="w-full bg-[#4bffb5] hover:bg-[#3ce0a1] text-[#1a1a1a]">
+                    Initialize Configuration
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -66,30 +82,36 @@ export default function Component() {
           </Card>
         </div>
 
-        <Card className="bg-[#430027] border-[#77216F]">
+        <Card className="bg-[#2b2b2b] border-[#4bffb5] border">
           <CardHeader>
-            <CardTitle className="text-2xl text-[#E95420]">Downloads</CardTitle>
-            <CardDescription className="text-[#AEA79F]">Get the necessary files to run your API gateway</CardDescription>
+            <CardTitle className="text-2xl text-[#4bffb5] flex items-center">
+              <Terminal className="mr-2 h-6 w-6" />
+              Resources
+            </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h3 className="font-semibold mb-2 text-[#AEA79F]">API Gateway Server</h3>
-              <Button asChild className="w-full bg-[#77216F] hover:bg-[#5E2750] text-white">
-                <a href="/api_gateway_server.zip" download>
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Server
-                </a>
-              </Button>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2 text-[#AEA79F]">Documentation</h3>
-              <Button asChild variant="outline" className="w-full border-[#77216F] hover:bg-[#5E2750] text-white">
-                <a href="/api_gateway_docs.pdf" download>
-                  <FileText className="mr-2 h-4 w-4" />
-                  Download Documentation
-                </a>
-              </Button>
-            </div>
+          <CardContent className="flex flex-col sm:flex-row gap-4">
+            <Button asChild className="flex-1 bg-[#4bffb5] hover:bg-[#3ce0a1] text-[#1a1a1a]">
+              <a href="/linux/spi_linux.zip" download className="flex items-center justify-center">
+                <Download className="mr-2 h-4 w-4"/>
+                Download SPI CLI (Linux)
+              </a>
+            </Button>
+          </CardContent>
+          <CardContent className="flex flex-col sm:flex-row gap-4">
+            <Button asChild className="flex-1 bg-[#4bffb5] hover:bg-[#3ce0a1] text-[#1a1a1a]">
+              <a href="/darwin/spi_darwin.zip" download className="flex items-center justify-center">
+                <Download className="mr-2 h-4 w-4"/>
+                Download SPI CLI (Mac)
+              </a>
+            </Button>
+          </CardContent>
+          <CardContent className="flex flex-col sm:flex-row gap-4">
+            <Button asChild className="flex-1 bg-[#4bffb5] hover:bg-[#3ce0a1] text-[#1a1a1a]">
+              <a href="/windows/spi_window.zip" download className="flex items-center justify-center">
+                <Download className="mr-2 h-4 w-4"/>
+                Download SPI CLI (Window)
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </div>
